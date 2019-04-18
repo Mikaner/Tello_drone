@@ -46,6 +46,8 @@ def on_press(key):
     send('right 100')
   elif key == Key.left:
     send('left 100')
+  elif key == Key.esc:
+    exit()
      
 
 def on_release(key):
