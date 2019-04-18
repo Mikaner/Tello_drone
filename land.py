@@ -1,11 +1,11 @@
 import socket
 import json
 
-with open("./ip.json","r",encoding="utf-8") as configCode:
-    config = configCode
+with open("./config/config.json",'r',encoding="utf-8") as code:
+    config = code
 
-TELLO_IP = "192.168.10.1"
-TELLO_PORT = 8889
+TELLO_IP = config["ip"]
+TELLO_PORT = config["port"]
 
 tello_address = (TELLO_IP, TELLO_PORT)
 
