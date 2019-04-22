@@ -5,7 +5,7 @@ import socket
 import json
 
 with open("./config/config.json",'r',encoding='utf-8') as code:
-    config = code
+    config = json.load(code)
 
 TELLO_IP = config["ip"]
 TELLO_PORT = config["drone_port"]
@@ -20,7 +20,7 @@ socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 def on_press(key):
     try:
         if key.char == 'f':
-        send('flip f')
+            send('flip f')
     except AttributeError:
         print("AttributeError")
         print(key)
@@ -46,7 +46,7 @@ def on_release(key):
 
 
 def send(command):
-    socket.sendto(command.encode('utf-8'), tello_address)  
+    socket.sendto(command.encode('utf-8'), tello_address)
 
 if __name__ == '__main__':
     send('command')
